@@ -5,10 +5,11 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-User.destroy_all
 
-User.create!([{
+User.create!({
   name: "Swapna Mondal",
   address: "Udaynarayanpur,Howrah-711226",
   age: 19
-}])
+  email: 'abc@gamil.com'
+  status: true
+})

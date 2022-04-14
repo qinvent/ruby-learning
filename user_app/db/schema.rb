@@ -21,8 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_12_060509) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email"
+    t.boolean "status", default: true
   end
 
-  add_foreign_key "comments", "articles"
 end
 

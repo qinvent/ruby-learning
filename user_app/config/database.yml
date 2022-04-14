@@ -35,7 +35,7 @@ development:
    host: localhost
    pool: 5
    port: 5432
-   database: testdb
+   database: userdb
    username: souvick
    password: 1234
      
@@ -44,7 +44,7 @@ test:
    encoding: unicode
    hostname: localhost
    port: 5432
-   database: testdb
+   database: userdb
    username: souvick
    password: 1234
  
@@ -53,6 +53,6 @@ production:
    encoding: unicode
    hostname: localhost
    port: 5432
-   database: testdb
+   database: userdb
    username: souvick
    password: 1234
