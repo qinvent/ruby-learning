@@ -3,17 +3,22 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </div>
-
   <div>
     <%= form.label :age %><br>
     <%= form.number_field :age %>
   </div>
-
+   <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </div>
+  <div>
+    <%= form.label :status %><br>
+    <%= form.check_box :status %>
+  </div>
   <div>
     <%= form.label :address %><br>
     <%= form.text_area :address %>
   </div>
-
   <div>
     <%= form.submit  %>
   </div>
