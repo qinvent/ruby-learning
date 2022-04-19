@@ -1,0 +1,21 @@
+<h1><%= @author.name %></h1>
+
+<ol>
+  <% @author.books.each do |book| %>
+    <li>
+      <b><%=book.name%></b> published at <%= book.published_at%>
+    </li>
+  <% end %>
+</ol>
+
+
+<ul>
+  <li><%= link_to "Add Book", new_author_book_path(@author) %></li>
+
+  <li><%= link_to "Edit", edit_author_path(@author) %></li>
+
+  <li><%= link_to "Destroy", author_path(@author), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }%></li>
+</ul>

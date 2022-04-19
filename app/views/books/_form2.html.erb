@@ -1,0 +1,15 @@
+<%= form_with model:[@author,@author.books.build] do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :published_at%><br>
+    <%= form.date_field :published_at %>
+  </div>
+  <br>
+  <div>
+    <%= form.submit  %>
+  </div>
+<% end %>
