@@ -1,4 +1,6 @@
-<%= form_with model:[@author,@author.books.build] do |form| %>
+<% @option = params["action"] == "edit" ? @book : @author.books.build %>
+
+<%= form_with model:[@author,@option] do |form| %>
   <div>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -10,6 +12,6 @@
   </div>
   <br>
   <div>
-    <%= form.submit  %>
+    <button class="btn btn-success" onclick="form.submit">Submit</button>
   </div>
 <% end %>

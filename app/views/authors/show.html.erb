@@ -1,21 +1,22 @@
-<h1><%= @author.name %></h1>
+<div>
+  <h1><%= @author.name %></h1>
 
-<ol>
-  <% @author.books.each do |book| %>
-    <li>
-      <b><%=book.name%></b> published at <%= book.published_at%>
-    </li>
-  <% end %>
-</ol>
-
-
-<ul>
-  <li><%= link_to "Add Book", new_author_book_path(@author) %></li>
-
-  <li><%= link_to "Edit", edit_author_path(@author) %></li>
-
-  <li><%= link_to "Destroy", author_path(@author), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  }%></li>
-</ul>
+  <ol>
+    <% @author.books.each do |book| %>
+      <li>
+        <%= link_to book.name, author_book_path(:author_id => @author,:id => book) %>
+      </li>
+    <% end %>
+  </ol>
+  <div id="button-part">
+    <div>
+      <%= button_to "Add Book", new_author_book_path(@author), method:"get", class:"btn btn-success" %>
+    </div>
+    <div>
+      <%= button_to "Edit", edit_author_path(@author) , method:"get" ,class:"btn btn-warning" %>
+    </div>
+    <div>
+      <%= button_to "Destroy", author_path(@author), method: "delete", confirm: "Are you sure?",class:"btn btn-danger" %>
+    </div>
+  </div>
+</div>

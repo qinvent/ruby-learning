@@ -37,8 +37,9 @@ class AuthorsController < ApplicationController
 
   def destroy
     @author = Author.find(params[:id])
+    @author.books.destroy_all
     @author.destroy
-    redirect_to "/authors", status: :see_other
+    redirect_to authors_path, status: :see_other
   end
 
   private
