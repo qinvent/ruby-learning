@@ -1,0 +1,9 @@
+<%= form_with model: @author do |form| %>
+  <div>
+    <%= form.label :author %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <button class="btn btn-success" onclick="form.submit">Submit</button>
+<% end %>

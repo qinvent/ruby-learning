@@ -1,0 +1,22 @@
+<div>
+  <h1><%= @author.name %></h1>
+
+  <ol>
+    <% @author.books.each do |book| %>
+      <li>
+        <%= link_to book.name, author_book_path(:author_id => @author,:id => book) %>
+      </li>
+    <% end %>
+  </ol>
+  <div id="button-part">
+    <div>
+      <%= button_to "Add Book", new_author_book_path(@author), method:"get", class:"btn btn-success" %>
+    </div>
+    <div>
+      <%= button_to "Edit", edit_author_path(@author) , method:"get" ,class:"btn btn-warning" %>
+    </div>
+    <div>
+      <%= button_to "Destroy", author_path(@author), method: "delete", confirm: "Are you sure?",class:"btn btn-danger" %>
+    </div>
+  </div>
+</div>
