@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <title>TestApp</title>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <link rel="stylesheet" href="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.css" />
+    <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid main_menu">
+      <div class="row">
+        <div class="col-md-10 col-12 mx-auto">
+          <nav class="navbar navbar-expand-lg ">
+            <a class="navbar-brand"><i class="fas fa-snowflake"></i> Test App <i class="fas fa-snowflake"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                  </li>
+                  <li class="nav-item" >
+                    <a class="nav-link" href="/ideas">Ideas</a>
+                  </li>
+                  <li class="nav-item" >
+                    <button class="btn btn-primary" onclick="location.href='javascript:history.back()';">Back</button>
+                  </li>
+              </ul>
+            </div>
+            </nav>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="row">
+                    <div class="col-md-6 col-12 main_header_left">
+                      <div id="map" style="width: 450px; height: 400px"></div>
+                    </div>
+                    <div class="col-md-6 col-12 main_header_right">
+                        <%= yield %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    var planes = [
+      ["7C6B07",-40.99497,174.50808],
+      ["7C6B38",-41.30269,173.63696],
+      ["7C6CA1",-41.49413,173.5421],
+      ["7C6CA2",-40.98585,174.50659],
+      ["C81D9D",-40.93163,173.81726],
+      ["C82009",-41.5183,174.78081],
+      ["C82081",-41.42079,173.5783],
+      ["C820AB",-42.08414,173.96632],
+      ["C820B6",-41.51285,173.53274]
+      ];
+  
+          var map = L.map('map').setView([-41.0855, 174.6000], 8);
+          mapLink = 
+              '<a href="http://openstreetmap.org">OpenStreetMap</a>';
+          L.tileLayer(
+              'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+              attribution: '&copy; ' + mapLink + ' Contributors',
+              maxZoom: 18,
+              }).addTo(map);
+  
+      for (var i = 0; i < planes.length; i++) {
+        marker = new L.marker([planes[i][1],planes[i][2]])
+          .bindPopup(planes[i][0])
+          .addTo(map);
+      }
+  </script>
+  </body>
+  <footer>
+    <p>Created with ❤️ by Souvick Mondal</p>
+  </footer>
+</html>
