@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<div id="ideas">
+  <h1>Ideas</h1>
+  <table>
+     <% @ideas.each do |idea| %>
+     <tr>
+        <td style="width:20rem;"><%= render idea %></td>
+        <td style="width:20rem;"><%= link_to "Show this idea", idea %></td>
+    </tr>
+    <% end %>
+  </table>
+  <%= link_to "New idea", new_idea_path %>
+</div>
+
