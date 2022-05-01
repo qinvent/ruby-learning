@@ -1,0 +1,26 @@
+<%= turbo_frame_tag quote do %>
+  <div class="quote">
+    <table>
+      <tr>
+        <td>
+          <%= link_to quote.name, quote_path(quote), data: { turbo_frame: "_top" }%>
+        </td>
+        <td>
+          <div class="quote__actions">
+            <%= button_to "Delete",
+                          quote_path(quote),
+                          method: :delete,
+                          class: "btn btn--light" %>
+        <td>
+        <td>
+          <div class="quote__actions">
+            <%= button_to "Edit",
+                        edit_quote_path(quote),
+                        method:"get",
+                        class: "btn btn--light" %>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% end %>
