@@ -1,3 +1,6 @@
-<h1>New Author Details</h1>
-
-<%= render "form1", author: @author %>
+<div>
+  <h1>New Author Details</h1>
+  <%= turbo_frame_tag @author do %>
+    <%= render "form", author: @author %>
+  <% end %>
+</div>

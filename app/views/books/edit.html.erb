@@ -1,0 +1,6 @@
+<div>
+  <h1>Edit Book Details</h1>
+  <%= turbo_frame_tag @book do %>
+    <%= render "form", author:@author , book:@book %>
+  <% end %>
+</div>

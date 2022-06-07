@@ -1,0 +1,22 @@
+<% @option = params["action"] == "edit" ? @book : @author.books.build %>
+
+<%= form_with model:[@author,@option] do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :'select type' %><br>
+    <%= form.select :book_type, Book::BOOK_TYPE %>
+  </div>
+  <br>
+  <div>
+    <%= form.label :published_at%><br>
+    <%= form.date_field :published_at %>
+  </div>
+  <br>
+  <div>
+    <button class="btn btn-success" onclick="form.submit">Submit</button>
+  </div>
+<% end %>

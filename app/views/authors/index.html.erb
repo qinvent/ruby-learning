@@ -1,11 +1,9 @@
-<h1>Authors List</h1>
-
-<ul>
-  <% @authors.each do |author| %>
-    <li>
-      <%= link_to author.name, author_path(author)%>
-    </li>
+<div>
+  <h1>Authors List</h1>
+  <%= turbo_frame_tag "authors" do %>
+    <%= render @authors %>
   <% end %>
-</ul>
-
-<%= link_to "New Author", new_author_path %>
+  <br>
+  <%= button_to "New Author", new_author_path , method:"get" ,class:"btn btn-success", data: { turbo_frame: dom_id(Author.new)} %>
+  <%= turbo_frame_tag Author.new %>
+</div>
