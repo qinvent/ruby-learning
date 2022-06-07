@@ -1,0 +1,20 @@
+<%= turbo_stream.append "books" do %>
+  <%= turbo_frame_tag @book do %>
+    <table>
+      <tr>
+        <td>
+          <h2><%= @book.name %></h2> 
+          <p>published at <%= @book.published_at %></p>
+        </td>
+        <td>
+          <%= button_to "Edit", edit_author_book_path(:author_id => @author, :id => @book), method:"get" ,class:"btn btn-warning" %>
+        </td>
+        <td>
+          <%= button_to "Destroy", author_book_path(:author_id => @author, :id => @book), method: "delete", confirm: "Are you sure?", class:"btn btn-danger" %>
+        </td>
+      </tr>
+    </table>
+    <% end %>
+<% end %>
+
+<%= turbo_stream.update Book.new, "" %>

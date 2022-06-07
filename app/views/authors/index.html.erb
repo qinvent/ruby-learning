@@ -1,0 +1,9 @@
+<div>
+  <h1>Authors List</h1>
+  <%= turbo_frame_tag "authors" do %>
+    <%= render @authors %>
+  <% end %>
+  <br>
+  <%= button_to "New Author", new_author_path , method:"get" ,class:"btn btn-success", data: { turbo_frame: dom_id(Author.new)} %>
+  <%= turbo_frame_tag Author.new %>
+</div>

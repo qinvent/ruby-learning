@@ -1,0 +1,5 @@
+<%= turbo_stream.append "authors" do %>
+  <%= render @author %>
+<% end %>
+
+<%= turbo_stream.update Author.new, "" %>
